@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Email address:</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <input type="password" class="form-control" id="pwd" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPwd">Reconfirm Password:</label>
+                        <input type="password" class="form-control" id="confirmPwd" required>
+                        <small id="passwordHelp" class="form-text text-muted"></small>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('confirmPwd').addEventListener('input', function() {
+            var pwd = document.getElementById('pwd').value;
+            var confirmPwd = document.getElementById('confirmPwd').value;
+            if (pwd === confirmPwd) {
+                document.getElementById('passwordHelp').textContent = 'Passwords match';
+                document.getElementById('passwordHelp').style.color = 'green';
+            } else {
+                document.getElementById('passwordHelp').textContent = 'Passwords do not match';
+                document.getElementById('passwordHelp').style.color = 'red';
+            }
+        });
+    </script>
+</body>
+</html>

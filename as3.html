@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    function convertDate(userDate) {
+    let dateParts = userDate.split('/');
+    //splitting on the basis of '/'
+
+    // Adding 2000 to the year to convert 'yy' to 'yyyy'
+    let year = '20' + dateParts[2];
+    let month = dateParts[0]
+    let day = dateParts[1]
+
+    // Return the formatted date
+    return year + month + day;
+}
+//example case
+let userDate = "29/02/24";
+let apiDate = convertDate(userDate);
+console.log(apiDate); 
+</script>
+</html>

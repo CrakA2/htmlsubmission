@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Select List Example</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="mt-4">Select List Example</h2>
+      <form>
+        <div class="form-group">
+          <label for="fruits">Choose a fruit:</label>
+          <select class="form-control" id="fruits" name="fruits">
+            <option value="apple">Apple</option>
+            <option value="banana">Banana</option>
+            <option value="cherry">Cherry</option>
+            <option value="date">Date</option>
+            <option value="elderberry">Elderberry</option>
+          </select>
+        </div>
+      </form>
+      <div class="card mt-4" style="width: 18rem;">
+        <img id="fruit-image" src="https://images.pexels.com/photos/206959/pexels-photo-206959.jpeg" class="card-img-top" alt="fruit image">
+        <div class="card-body">
+            <h5 class="card-title" id="fruit-name">Apple</h5>
+        </div>
+    </div>
+
+</div>
+  </body>
+  <script>
+    document.getElementById('fruits').addEventListener('change', function() {
+        var fruit = this.value;
+        var fruitImage = document.getElementById('fruit-image');
+        var fruitName = document.getElementById('fruit-name');
+
+        switch(fruit) {
+            case 'apple':
+                fruitImage.src = 'https://images.pexels.com/photos/206959/pexels-photo-206959.jpeg';
+                fruitName.textContent = 'Apple';
+                break;
+            case 'banana':
+                fruitImage.src = 'https://images.pexels.com/photos/2238309/pexels-photo-2238309.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
+                fruitName.textContent = 'Banana';
+                break;
+            case 'cherry':
+                fruitImage.src = 'https://images.pexels.com/photos/1149021/pexels-photo-1149021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
+                fruitName.textContent = 'Cherry';
+                break;
+            case 'date':
+                fruitImage.src = 'https://images.pexels.com/photos/3993529/pexels-photo-3993529.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
+                fruitName.textContent = 'Date';
+                break;
+            case 'elderberry':
+                fruitImage.src = 'https://images.pexels.com/photos/1028599/pexels-photo-1028599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
+                fruitName.textContent = 'Elderberry';
+                break;
+        }
+    });
+</script>
+</html>

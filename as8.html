@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration Form</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        height: 95dvh;
+        display: grid;
+
+        place-items: center;
+      }
+
+      form {
+        width: 30rem;
+        margin: auto auto;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        width: 95%;
+        padding: 10px;
+        margin-top: 0px;
+      }
+      label {
+        display: inline-block;
+        margin-top: 5px;
+        margin-bottom: 0px;
+      }
+
+      input[type="submit"] {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #1298f1;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
+
+        background-color: azure;
+        padding: 3rem;
+        border-radius: 2rem;
+        border: #1298f1 solid 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <form id="registrationForm">
+        <label for="username">Username:</label><br />
+        <input type="text" id="username" name="username" required /><br />
+        <label for="email">Email:</label><br />
+        <input type="email" id="email" name="email" required /><br />
+        <label for="password">Password:</label><br />
+        <input type="password" id="password" name="password" required /><br />
+        <input type="submit" value="Register" />
+      </form>
+    </div>
+    <script>
+      document
+        .getElementById("registrationForm")
+        .addEventListener("submit", function (event) {
+          var username = document.getElementById("username").value;
+          var email = document.getElementById("email").value;
+          var password = document.getElementById("password").value;
+
+          if (username === "" || email === "" || password === "") {
+            alert("All fields are required.");
+            event.preventDefault();
+          }
+        });
+    </script>
+  </body>
+</html>

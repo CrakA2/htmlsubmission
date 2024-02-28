@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function ensure(value) {
+    if (value === undefined || arguments.length === 0) {
+        throw new Error("No arguments provided or argument is undefined");
+    }
+    return value;
+}
+
+//example cases
+// Success cases
+console.log(ensure(5)); // Outputs: 5
+console.log(ensure('Hello')); // Outputs: 'Hello'
+console.log(ensure(true)); // Outputs: true
+
+// Failure cases
+try {
+    console.log(ensure()); //empty argument
+} catch (error) {
+    console.error(error.message);
+}
+
+try {
+    console.log(ensure(undefined)); //undefined argument
+} catch (error) {
+    console.error(error.message);
+}
+</script>
+</html>

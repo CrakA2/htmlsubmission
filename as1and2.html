@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+function removeProperty(obj, prop) {
+    if (obj.hasOwnProperty(prop)) {
+        delete obj[prop];
+        return true;
+    }
+    return false;
+}
+
+function testRemoveProperty() {
+    // Test case 1: Removing an existing property
+    let obj = { prop1: 'value1', prop2: 'value2' };
+    console.assert(removeProperty(obj, 'prop1') === true, 'Test 1 Failed');
+    console.assert(obj.hasOwnProperty('prop1') === false, 'Test 2 Failed');
+    console.assert(removeProperty(obj, 'prop3') === false, 'Test 3 Failed');
+    console.log('All tests passed!');
+    // Test case 2: Removing a non-existing property
+    // Failing Test Case, It wont work as prop3 is not present in the object
+    let obj2 = { prop1: 'value1', prop2: 'value2' };
+    console.assert(removeProperty(obj2, 'prop3') === true, 'Test 4 Failed');
+}
+
+testRemoveProperty();
+
+    
+</script>
+</html>

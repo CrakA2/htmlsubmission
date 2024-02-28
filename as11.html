@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Assignment 11</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 95vh;
+        flex-direction: column;
+      }
+      button {
+        background: none;
+        border: 2px solid;
+        font: inherit;
+        line-height: 1;
+        margin: 0.5em;
+        padding: 1em 2em;
+        width: 10em;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 50vh;
+        background-color: rgba(159, 209, 7, 0.2);
+        width: 50vw;
+        border-radius: 1rem;
+      }
+      .question {
+        margin-bottom: 10px;
+        background-color: aliceblue 0.3;
+      }
+      button {
+        color: var(--color);
+        transition: 0.25s;
+      }
+      button:hover,
+      button:focus {
+        border-color: var(--hover);
+        color: #ffffff;
+      }
+      .up {
+        --color: #3d18a2;
+        --hover: #266117;
+      }
+      .up:hover,
+      .up:focus {
+        box-shadow: inset 0 -3.25em 0 0 var(--hover);
+      }
+      .options {
+        display: flex;
+        flex: 2 2;
+      }
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: rgb(255, 255, 255);
+        padding: 14px 20px;
+        cursor: pointer;
+        width: 10em;
+        border: none;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+      .sub {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div class="container">
+      <h1 style="text-align: center">Quiz</h1>
+      <form id="quiz-form">
+        <div class="question">
+          <h2 style="margin-left:10px">Question 1: What is the capital of France?</h2>
+          <div class="options">
+            <button type="button" class="up" value="a">A. London</button>
+            <button type="button" class="up" value="b">B. Paris</button>
+            <button type="button" class="up" value="c">C. Rome</button>
+            <button type="button" class="up" value="d">D. Berlin</button>
+          </div>
+        </div>
+        <div class="sub"><input type="submit" value="Submit" /></div>
+        
+      </form>
+    </div>
+    <h1 style="display: inline" class="alert"></h1>
+
+    <script>
+      var selectedAnswer = null;
+      var buttons = document.querySelectorAll(".options button");
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          selectedAnswer = this.value;
+          buttons.forEach(function (btn) {
+            btn.classList.remove("selected");
+          });
+          this.classList.add("selected");
+        });
+      });
+
+      document
+    .getElementById("quiz-form")
+    .addEventListener("submit", function (e) {
+        e.preventDefault();
+        var alertElement = document.querySelector('h1.alert');
+        if (selectedAnswer === "b") {
+            document.body.style.backgroundColor = "greenyellow";
+            alertElement.textContent = "Correct answer!";
+        } else {
+            document.body.style.backgroundColor = "Crimson";
+            alertElement.textContent = "Incorrect answer!";
+        }
+    });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center mt-4">INR to USD Currency Converter</h2>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <div class="input-group mb-3">
+                    <input type="number" id="inr" class="form-control" placeholder="Enter amount in INR">
+                    <div class="input-group-append">
+                        <span class="input-group-text">INR</span>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-block" onclick="convert()">Convert to USD</button>
+                <div class="input-group mt-3">
+                    <input type="text" id="usd" class="form-control" placeholder="Amount in USD" readonly>
+                    <div class="input-group-append">
+                        <span class="input-group-text">USD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function convert() {
+            var inr = document.getElementById('inr').value;
+            var response = await fetch('https://v6.exchangerate-api.com/v6/e2d3b0f9e99c0b830a67c57c/latest/INR');
+            var data = await response.json();
+            var usdRate = data.conversion_rates.USD;
+            var usd = inr * usdRate;
+            document.getElementById('usd').value = usd.toFixed(2);
+        }
+    </script>
+</body>
+</html>
