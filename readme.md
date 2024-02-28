@@ -1,5 +1,8 @@
 # HTML Assignments
 
+To Visit in browser https://craka2.github.io/htmlsubmission/
+Dont Forget To check console in case of javascript only Assignment.
+
 This repository contains various HTML assignments. Each file represents a different assignment and demonstrates different aspects of HTML, CSS, and JavaScript.
 
 ## [as1and2.html](as1and2.html)
